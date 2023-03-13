@@ -1,0 +1,56 @@
+﻿ @model Conversor_Currecy_App.ViewModel.ConversorViewModel
+
+@{
+    ViewData["Title"] = "Home";
+    var resultado = (String)ViewData["resultado"];
+}
+
+
+<div class="row mb-5">
+    <div class="col-md-6 offset-3">
+        <div class="card">
+            <div class="card-header bg-success text-black" >
+                <h2 class="text-center fst-italic">Convierte tu moneda</h2>
+            </div>
+            <div class="card-body">
+
+                <form method="post" asp-controller="Conversor" asp-action="Index">
+
+                    <div class="mb-3">
+                        <label asp-for="MonedaOrigen" class="form-label">De:</label>
+                        <select class="form-select" asp-for="MonedaOrigen">
+                            <option value="USD">USD - Dólar estadounidense</option>
+                            <option value="EUR">EUR - Euro</option>
+                            <option value="DOP">DOP - Peso Dominicano</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="MonedaDestino" class="form-label">A:</label>
+                        <select class="form-select" asp-for="MonedaDestino">
+                            <option value="USD">USD - Dólar estadounidense</option>
+                            <option value="EUR">EUR - Euro</option>
+                            <option value="DOP">DOP - Peso Dominicano</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Cantidad" class="form-label">Cantidad a convertir:</label>
+                        <input asp-for="Cantidad" class="form-control" required="required"/>
+                    </div>
+
+                    <div class="mb-5">
+                        <button class="btn btn-outline-success float-end">Convertir</button>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<hr />
+
+<h3 style="text-align:center;"><i> $ @resultado </i></h3>
